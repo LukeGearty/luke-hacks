@@ -1,2 +1,6 @@
 # luke-hacks
 Collection of walkthroughs and written hacking tutorials
+
+# Vulnhub
+
+[Mercury](vulnhub_mercury.md)
