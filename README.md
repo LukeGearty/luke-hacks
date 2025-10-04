@@ -12,3 +12,6 @@ Collection of walkthroughs and written hacking tutorials
 
 
 [Napping](vulnhub-napping.md)
+
+
+[Thales](vulnhub-thales.md)
