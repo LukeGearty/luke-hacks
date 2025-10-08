@@ -3,14 +3,18 @@ Collection of walkthroughs and written hacking tutorials
 
 # Vulnhub
 
-[Mercury](vulnhub_mercury.md)
+[Mercury](/vulnhub/vulnhub_mercury.md)
 
-[Earth](vulnhub-earth.md)
+[Earth](/vulnhub/vulnhub-earth.md)
 
-[Empire: Breakout](empire-breakout.md)
+[Empire: Breakout](/vulnhub/empire-breakout.md)
 
-[Napping](vulnhub-napping.md)
+[Napping](/vulnhub/vulnhub-napping.md)
 
-[Thales](vulnhub-thales.md)
+[Thales](/vulnhubvulnhub-thales.md)
 
-[ICA: 1](vulnhub-ica1.md)
+[ICA: 1](/vulnhub/vulnhub-ica1.md)
+
+# PortSwigger
+
+[Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
