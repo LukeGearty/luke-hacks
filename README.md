@@ -7,14 +7,10 @@ Collection of walkthroughs and written hacking tutorials
 
 [Earth](vulnhub-earth.md)
 
-
 [Empire: Breakout](empire-breakout.md)
-
 
 [Napping](vulnhub-napping.md)
 
-
 [Thales](vulnhub-thales.md)
-
 
 [ICA: 1](vulnhub-ica1.md)
