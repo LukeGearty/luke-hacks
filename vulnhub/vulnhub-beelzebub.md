@@ -1,6 +1,8 @@
+# Security Assessment: Vulnhub Beelzebub Walkthrough
+
 ![alessio-zaccaria-po1ffK4lLMw-unsplash](https://github.com/user-attachments/assets/cb5c9b8d-2ff9-484e-a10c-5f61f028e8af)
 
-# Security Assessment: Vulnhub Beelzebub Walkthrough
+
 ## Introduction
 Beelzebub is a vulnerable machine found on Vulnhub. A vulnerable machine is a virtual machine deliberately designed to be vulnerable, to teach hacking and cybersecurity techniques. For this vulnerable machine, there are two goals: to get the user flag and to get the root flag.
 
