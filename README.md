@@ -15,6 +15,8 @@ Collection of walkthroughs and written hacking tutorials
 
 [ICA: 1](/vulnhub/vulnhub-ica1.md)
 
+[Beelzebub](/vulnhub/vulnhub-beelzebub.md)
+
 # PortSwigger
 
 [Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
