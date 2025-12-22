@@ -19,6 +19,8 @@ Collection of walkthroughs and written hacking tutorials
 
 [Deathnote: 1](/vulnhub/vulnhub-deathnote1.md)
 
+[Chronos: 1](/vulnhub/vulnhub-chronos.md)
+
 # PortSwigger
 
 [Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
