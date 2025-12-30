@@ -21,6 +21,8 @@ Collection of walkthroughs and written hacking tutorials
 
 [Chronos: 1](/vulnhub/vulnhub-chronos.md)
 
+[Looz: 1](/vulnhub/vulnhub-looz.md)
+
 # PortSwigger
 
 [Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
