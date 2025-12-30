@@ -107,4 +107,102 @@ I changed that to 1 to get the password for the next level.
 natas6
 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
 
+# Level 6
+I found a web page that has an input form that says “input secret”. 
 
+<img width="1330" height="517" alt="natas6-pt1" src="https://github.com/user-attachments/assets/e10e004b-5fb0-4e43-89c2-3a6303f94ee8" />
+
+
+Inputting anything gets a message that states “wrong secret”.
+
+<img width="601" height="203" alt="natas6-pt2" src="https://github.com/user-attachments/assets/0b96d1c9-dbf8-4c99-ac81-269dcf85dda4" />
+
+There is a button to look at the source code. The code is simply checking if the user input secret matches a specific string, and if it does then access is granted. That string, called secret, is in a ‘includes/secret.inc’ file, not in the source code itself. 
+
+<img width="655" height="373" alt="natas6-pt3" src="https://github.com/user-attachments/assets/a0a32d46-1f29-48ed-8b21-5433c644592e" />
+
+I went to that directory, which was just a blank page. I checked the source code and found the secret.
+
+<img width="994" height="362" alt="natas6-pt4" src="https://github.com/user-attachments/assets/cb657286-a53e-46d9-a004-4ad9195ba99e" />
+
+<img width="915" height="392" alt="natas6-pt5" src="https://github.com/user-attachments/assets/274f0125-ec91-4df0-9272-9cd4350340c9" />
+
+
+I input that string and received the password for the next level. 
+
+<img width="600" height="220" alt="natas6-pt6" src="https://github.com/user-attachments/assets/ac90da0f-873d-4c1e-922e-f5cb6d1a2ea5" />
+
+Natas7
+bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+
+
+# Natas7
+
+I went to the web page for this level, and there were two links, one to a home page and one to an about page.
+
+<img width="1329" height="422" alt="natas7-pt1" src="https://github.com/user-attachments/assets/9994018f-7cf3-4f80-b3ef-15f46cb3beb4" />
+
+
+I clicked on the home link, and the web page changed to say ‘this is the front page’. The URL changed to include ‘index.php?page=home’. 
+
+<img width="1333" height="424" alt="natas7-pt2" src="https://github.com/user-attachments/assets/a72ba21d-f791-49f4-b143-ecc72b4c8479" />
+
+I looked at the page source and saw this comment.
+
+<img width="773" height="153" alt="natas7-pt3" src="https://github.com/user-attachments/assets/6e0a2353-11d4-473d-b504-cb67b269bc9f" />
+
+
+Local file inclusion is a vulnerability where an attacker can make a web page display files from the server filesystem that are not intended to be displayed. In the URL, I changed the ‘?page=home’ to ‘?page=/etc/natas_webpass/natas8’ and received the password for the next level.
+
+<img width="1325" height="425" alt="natas7-pt4" src="https://github.com/user-attachments/assets/46c4bd7d-de1a-42a4-b467-0f77fb38a27f" />
+
+Natas8
+xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q 
+
+# Level 8
+
+I logged in to the web page and found the input secret form.
+
+<img width="1329" height="495" alt="natas8-pt1" src="https://github.com/user-attachments/assets/3ca037c7-9b09-4e60-9c90-dc5ba4e10e59" />
+
+
+I checked the source code and found that if the input secret matches the secret in the code, then the user will be granted access.
+
+<img width="643" height="256" alt="natas8-pt2" src="https://github.com/user-attachments/assets/7445d58d-1526-45fb-88c5-2858d7b34bb2" />
+
+
+The trick was that the user secret goes through a function to encode it, and the encoded secrets are compared. The encodeSecret function encodes a string with base64, then reverses it, then encodes that reversed string to hex.
+
+I took the encodedSecret string and used cyberchef to reverse that process to get the correct secret.
+
+<img width="1538" height="597" alt="natas8-pt3" src="https://github.com/user-attachments/assets/4276ac61-07e7-4c08-9d5d-6537c03fec9a" />
+
+<img width="603" height="221" alt="natas8-pt4" src="https://github.com/user-attachments/assets/e4fdb4c6-ba26-422a-bf92-a1041ed7de33" />
+
+
+Natas9
+
+ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+
+# Level 9
+
+I logged in to the level and found an input form that searched for words containing whatever input I gave it.
+
+<img width="1332" height="560" alt="natas9-pt1" src="https://github.com/user-attachments/assets/c5a1d227-eb93-4d72-a6bd-4d1b71c4c20f" />
+
+
+I tested this out just searching for words containing ‘a’.
+
+<img width="1324" height="897" alt="natas9-pt2" src="https://github.com/user-attachments/assets/d253f3d7-6544-4efb-9490-9278d7748446" />
+
+I looked at the source code and found that the code was taking the input, called $key in the code, and executing a command, ‘grep -i $key dictionary.txt’.
+
+<img width="891" height="340" alt="natas9-pt3" src="https://github.com/user-attachments/assets/b019c86d-4d40-461d-ae4c-892f826b6adb" />
+
+Passing user input directly to a command without sanitization is dangerous, because the user can execute their own commands on the system. I passed this payload, ‘; cat /etc/natas_webpass/natas10;’ to the user input and received the password for the next level. On the Linux command line, the semicolon is a command separator that allows the user to execute multiple commands sequentially. 
+
+<img width="599" height="239" alt="natas9-pt4" src="https://github.com/user-attachments/assets/51c8c593-a8e8-4f33-8d2b-ff1f89658290" />
+
+
+Natas10
+t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
