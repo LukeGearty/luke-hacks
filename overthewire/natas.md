@@ -206,3 +206,54 @@ Passing user input directly to a command without sanitization is dangerous, beca
 
 Natas10
 t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+
+# Level 10
+This level was similar to the last level, but now there was some filtering being done.
+
+<img width="602" height="247" alt="natas10_pt1" src="https://github.com/user-attachments/assets/961fbffe-27fb-4bc0-9557-9cf8bd5f0048" />
+
+I looked at the source code, and it filtered on characters like a semicolon or ampersand, so using the same trick as the last level would not work.
+
+<img width="587" height="229" alt="natas10_pt2" src="https://github.com/user-attachments/assets/ed7b2972-0960-4419-a58b-0834d9d16cc0" />
+
+
+
+However, it is possible to pass multiple files to grep, and it is known that the password for the next level was in the /etc/natas_webpass directory. I passed this payload: `a /etc/natas_webpass/natas11` to receive the password for the next level.
+
+<img width="1325" height="889" alt="natas10_pt3" src="https://github.com/user-attachments/assets/196253e6-5120-440a-b25b-29127c380e79" />
+
+
+Natas11
+UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+
+# Level 11
+
+This level had a form where the user could type in a hex code and change the background color. It also had a message that said “cookies are protected with XOR encryption”. 
+
+<img width="626" height="213" alt="natas11_pt1" src="https://github.com/user-attachments/assets/3e03ef20-d6e0-4d11-a73a-1b641255fba0" />
+
+
+I looked at the source code, and to summarize, a json with a ‘showpassword’ value of ‘no’ along with the hexcode of the current background color, is XORed and base64 encoded, then set as the cookie. If the value of showpassword is yes, then the password will (naturally) be shown. 
+
+<img width="1056" height="666" alt="natas11_pt2" src="https://github.com/user-attachments/assets/f3915702-135c-433e-819f-166945d3990c" />
+
+I got the text of the cookie. Since I had the plaintext and the ciphertext, I wrote a short python script to get the key used to encrypt the plaintext.
+<img width="1036" height="277" alt="natas11_pt3" src="https://github.com/user-attachments/assets/979ccce0-5406-42cb-8ed2-9b39aea49eb1" />
+<img width="1025" height="697" alt="natas11_pt4" src="https://github.com/user-attachments/assets/9280c134-a6cb-4099-8d59-5a5366e7e60d" />
+
+
+
+Since I had the key, I could encrypt a new cookie that would show the password. The plaintext of the cookie that would show the password would have “showpassword”: “yes” along with the background color. I modified the above script to create the new cookie.
+<img width="957" height="469" alt="natas11_pt5" src="https://github.com/user-attachments/assets/358dbd7d-68f6-4450-b244-3f6571526dd6" />
+
+<img width="912" height="103" alt="natas11_pt6" src="https://github.com/user-attachments/assets/557e352f-a306-4f4d-bfe2-76bccea22cdf" />
+
+
+
+I then plugged the above value into the browser and received the password for the next level.
+
+<img width="599" height="236" alt="natas11_pt7" src="https://github.com/user-attachments/assets/37236806-a576-458b-887d-0daf3649e178" />
+
+
+Natas12
+yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
