@@ -257,3 +257,68 @@ I then plugged the above value into the browser and received the password for th
 
 Natas12
 yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
+
+# Level 12
+
+The web page for this level was a form to upload a jpeg file. 
+
+<img width="663" height="234" alt="natas12-pt1" src="https://github.com/user-attachments/assets/9c41e265-ce34-4ac6-b9fd-144781351e23" />
+
+I looked at the source code, and a random path is generated and becomes the path to the jpeg when it is uploaded.
+
+<img width="887" height="634" alt="natas12-pt2" src="https://github.com/user-attachments/assets/3cbaed9f-8019-4fc4-a8ba-62d311344981" />
+
+From the source code, there was no kind of validation, meaning that I could upload any kind of file and it would be accepted.
+
+<img width="598" height="136" alt="natas12-pt3" src="https://github.com/user-attachments/assets/ffe6dbe1-618d-4287-974e-8b5b585f3175" />
+
+I looked at the page source and saw the random name, and this was being done client side. I could upload any kind of file and change the name/file extension in the developer tools.
+
+<img width="690" height="215" alt="natas12-pt4" src="https://github.com/user-attachments/assets/5462e167-1899-4a4a-b9a9-2a080a6e9e4d" />
+
+I wrote a short php file that would accept a command as an argument in the URL, for the variable ‘x’. 
+
+<img width="727" height="96" alt="natas12-pt5" src="https://github.com/user-attachments/assets/45636697-9002-4b52-9e73-c8a4dc6c00f0" />
+
+I uploaded the file.
+
+<img width="599" height="145" alt="natas12-pt6" src="https://github.com/user-attachments/assets/ff43bf62-4a42-41ff-ab10-1fc48798b91b" />
+
+And then used this argument `x=cat /etc/natas_webpass/natas13` to get the password for the next level.
+
+<img width="1139" height="172" alt="natas12-pt7" src="https://github.com/user-attachments/assets/447a6ae2-5b7e-4280-9654-c53e764f60c1" />
+
+Natas13
+trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC
+
+# Level 13
+This level was similar to the previous level, except now there was some validation of the kind of file, meaning that I couldn't just upload a text file and have it be accepted.
+
+<img width="611" height="244" alt="natas13-pt1" src="https://github.com/user-attachments/assets/3e0c0b17-3238-495a-96ae-b6bf3de5a8fe" />
+
+I looked at the source code and the code was using exif_imagetype to check the type of file. Exif_imagetype checks the first few bytes of a file to determine the file signature and file type.
+
+<img width="773" height="739" alt="natas13-pt2" src="https://github.com/user-attachments/assets/e376b39d-74fc-420a-85a9-f16c5a776c52" />
+
+
+The below screenshot was the response when I uploaded a text file.
+
+<img width="608" height="242" alt="natas13-pt3" src="https://github.com/user-attachments/assets/6d56205b-8a72-4878-bbab-a48fceba62c8" />
+
+I changed the first few bytes of the previous level's exploit in order to trick the program into thinking a jpeg had just been uploaded.
+
+<img width="719" height="114" alt="natas13-pt4" src="https://github.com/user-attachments/assets/42505a80-a6dd-40a6-b558-121585698f8a" />
+
+
+I changed the form in the developer tools to accept a .php file extension.
+
+<img width="975" height="842" alt="natas13-pt5" src="https://github.com/user-attachments/assets/83938c64-e78a-47be-a612-9cf0244c21e2" />
+
+
+I then performed the same technique as the last level to get the password.
+
+<img width="1101" height="440" alt="natas13-pt6" src="https://github.com/user-attachments/assets/2a9be6a2-2509-4934-8e18-ccaa241575dd" />
+
+
+Natas14
+z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ
