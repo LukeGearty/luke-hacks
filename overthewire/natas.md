@@ -322,3 +322,28 @@ I then performed the same technique as the last level to get the password.
 
 Natas14
 z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ
+
+# Level 14
+The web page contained a username and password login form. 
+
+<img width="652" height="233" alt="natas14-pt1" src="https://github.com/user-attachments/assets/ddbdf248-af26-4c69-bcc3-c4aec5a9677c" />
+
+I looked at the source code and saw that there was a SQL injection vulnerability.The code was directly inserting user input into the query string without sanitizing it.
+
+<img width="1029" height="283" alt="natas14-pt2" src="https://github.com/user-attachments/assets/13ec0f86-3df2-4ab0-9de8-dce6f4bbf826" />
+
+
+An unsuccessful login looked like the below screenshot.
+
+<img width="646" height="188" alt="natas14-pt3" src="https://github.com/user-attachments/assets/5a22ea43-e43f-435c-9b19-3e0ec9d038be" />
+
+But a user could add ‘debug’ to the request parameters to see the SQL query.
+
+<img width="1328" height="400" alt="natas14-pt4" src="https://github.com/user-attachments/assets/95b47429-2e74-4acc-905a-94ccf95f0351" />
+
+I modified the request URL to evaluate to a condition that is always true in order to receive the password for the next level.
+
+<img width="1327" height="463" alt="natas15-pt5" src="https://github.com/user-attachments/assets/b6e97823-84ab-4487-9e6f-b635227cdf82" />
+
+Natas15
+SdqIqBsFcz3yotlNYErZSZwblkm0lrvx
