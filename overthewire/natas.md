@@ -347,3 +347,41 @@ I modified the request URL to evaluate to a condition that is always true in ord
 
 Natas15
 SdqIqBsFcz3yotlNYErZSZwblkm0lrvx
+
+# Level 15
+
+Level 15
+
+The web page had a form to check whether a username exists. 
+
+<img width="665" height="241" alt="natas15-pt1" src="https://github.com/user-attachments/assets/fb263fe5-accd-4e97-b91d-13a7306fbb77" />
+
+<img width="709" height="198" alt="natas15-pt2" src="https://github.com/user-attachments/assets/1082bbe5-8633-4186-a6d0-79f591961894" />
+
+In the source code, the user input was once again being put into the SQL query. However, the only thing that would be returned to the user was a string that said whether the user existed or not. 
+
+<img width="696" height="372" alt="natas15-pt3" src="https://github.com/user-attachments/assets/6c695610-4a4e-4c72-b0fc-5ed84ebc8e0c" />
+
+
+The web page was vulnerable to SQL injection, and I manually tested it to ensure it was, but the only thing returned was confirmation of whether the user exists (True) or not (False).
+
+<img width="602" height="185" alt="natas15-pt4" src="https://github.com/user-attachments/assets/9101b25f-8ada-44ff-9852-6fa5191ede3e" />
+
+<img width="628" height="166" alt="natas15-pt5" src="https://github.com/user-attachments/assets/5c28c4b4-b6a3-486a-bb4b-31d94e313c7d" />
+
+This was vulnerable to a Blind SQL injection, where an attacker infers information from behavior of the application. For example, an attacker can use a Blind SQL injection to guess the characters in a password. 
+
+This would take a very long time manually, but using sqlmap the process can be automated. I utilizing this command:
+
+`sqlmap -u http://natas15.natas.labs.overthewire.org/index.php?debug --string="This user exists" --auth-type=Basic --auth-cred=natas15:SdqIqBsFcz3yotlNYErZSZwblkm0lrvx --data "username=natas16" --level=5 --risk=3 -T users -C username,password --dump`
+
+To get the password for the next level.
+
+<img width="1081" height="618" alt="natas15-pt6" src="https://github.com/user-attachments/assets/8c4e7110-fe35-4fb9-a09b-32c37eef1a37" />
+
+<img width="1088" height="387" alt="natas15-pt7" src="https://github.com/user-attachments/assets/b3eddc92-51f1-46ea-b49f-6caaf931e996" />
+
+
+Natas16
+hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
+
