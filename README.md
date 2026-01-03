@@ -32,3 +32,5 @@ Collection of walkthroughs and written hacking tutorials
 # Overthewire
 
 [Bandit](overthewire/bandit.md)
+
+[Natas](overthewire/natas.md) - In Progress
