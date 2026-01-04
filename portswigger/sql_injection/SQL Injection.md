@@ -1,3 +1,5 @@
+# SQL Injection
+
 SQLi is a web security vulnerability that allows an attacker to manipulate queries that application makes to a database. This can allow them to view data they might not normally be able to retrieve.
 
 ## Detection
@@ -34,6 +36,17 @@ If the app doesn't implement any defense, then an attack like this:
 
 The '--' is a comment indicator in SQL, this means that everything after it isn't evaluated.
 
+## LAB - SQL Injection Vulnerability in WHERE clause allowing retrieval of hidden data
+
+<img width="1307" height="627" alt="sql_injection_where_clause-pt1" src="https://github.com/user-attachments/assets/7e009033-d588-4952-bed2-1627df8f4402" />
+
+<img width="906" height="748" alt="sql_injection_where_clause_pt2" src="https://github.com/user-attachments/assets/9d6b8e43-57bb-4f21-93be-7b06e695f72f" />
+
+<img width="908" height="389" alt="sql_injection_where_clause_pt3" src="https://github.com/user-attachments/assets/9a6874ec-9445-426d-8a8c-d84ad89c3a3c" />
+
+<img width="1305" height="771" alt="sql_injection_where_clause_pt4" src="https://github.com/user-attachments/assets/be85f25c-6371-4eca-8c35-9f97646baaa2" />
+
+
 ## Subverting Application Logic
 
 When you log in to an application with a username and password, the SQL query can look like this:
@@ -43,6 +56,17 @@ SELECT * FROM users WHERE username = 'username' AND password = 'password'
 ```
 
 An attacker can use a SQL comment after username to remove the password check.
+
+
+## LAB - SQL Injection vulnerability allowing login bypass
+
+<img width="1313" height="631" alt="sql_injection_login_bypass-pt1" src="https://github.com/user-attachments/assets/5c8d32a8-5dcc-45e2-9ddd-6bfcfab0ac7a" />
+
+<img width="1241" height="882" alt="sql_injection_login_bypass-pt2" src="https://github.com/user-attachments/assets/cb7e2e64-5a35-4f4f-ac43-a39d0be5a65e" />
+
+<img width="914" height="467" alt="sql_injection_login_bypass-pt3" src="https://github.com/user-attachments/assets/9549764c-c47f-424e-8f91-78770368ff82" />
+
+<img width="1308" height="625" alt="sql_injection_login_bypass-pt4" src="https://github.com/user-attachments/assets/0e1d7c18-3004-4866-bc12-adc0b90c7b7b" />
 
 
 ## SQL Injection UNION attacks
