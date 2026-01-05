@@ -1,5 +1,7 @@
 # SQL Injection
 
+These are notes and screenshots from Portswigger's web-security modules on SQL injections. 
+
 SQLi is a web security vulnerability that allows an attacker to manipulate queries that application makes to a database. This can allow them to view data they might not normally be able to retrieve.
 
 ## Detection
@@ -36,7 +38,7 @@ If the app doesn't implement any defense, then an attack like this:
 
 The '--' is a comment indicator in SQL, this means that everything after it isn't evaluated.
 
-## LAB - SQL Injection Vulnerability in WHERE clause allowing retrieval of hidden data
+# LAB - SQL Injection Vulnerability in WHERE clause allowing retrieval of hidden data
 
 <img width="1307" height="627" alt="sql_injection_where_clause-pt1" src="https://github.com/user-attachments/assets/7e009033-d588-4952-bed2-1627df8f4402" />
 
@@ -47,7 +49,7 @@ The '--' is a comment indicator in SQL, this means that everything after it isn'
 <img width="1305" height="771" alt="sql_injection_where_clause_pt4" src="https://github.com/user-attachments/assets/be85f25c-6371-4eca-8c35-9f97646baaa2" />
 
 
-## Subverting Application Logic
+# Subverting Application Logic
 
 When you log in to an application with a username and password, the SQL query can look like this:
 
@@ -58,7 +60,7 @@ SELECT * FROM users WHERE username = 'username' AND password = 'password'
 An attacker can use a SQL comment after username to remove the password check.
 
 
-## LAB - SQL Injection vulnerability allowing login bypass
+# LAB - SQL Injection vulnerability allowing login bypass
 
 <img width="1313" height="631" alt="sql_injection_login_bypass-pt1" src="https://github.com/user-attachments/assets/5c8d32a8-5dcc-45e2-9ddd-6bfcfab0ac7a" />
 
@@ -69,7 +71,10 @@ An attacker can use a SQL comment after username to remove the password check.
 <img width="1308" height="625" alt="sql_injection_login_bypass-pt4" src="https://github.com/user-attachments/assets/0e1d7c18-3004-4866-bc12-adc0b90c7b7b" />
 
 
-## SQL Injection UNION attacks
+# Retrieving data from other database tables
+When an application responds with the results of a SQL query, an attacker can use a SQL injection to retrieve data from other tables. 
+
+# SQL Injection UNION attacks
 UNION keyword enables you to execute one or more additional SELECT queries and append the results to the original query.
 ```
 `SELECT a, b FROM table1 UNION SELECT c, d FROM table2`
@@ -80,7 +85,7 @@ Two requirements:
 - The data types in each column must be compatible between the individual queries.
 When performing a SQL injection UNION attack, you need to know how many columns are being returned from the original query, and which columns returned from the original query are of a suitable data type to hold the results from the injected query.
 
-### Determining the number of columns
+## Determining the number of columns
 
 Two effective methods to determine number of columns:
 ```
@@ -100,14 +105,14 @@ Second Method:
 And so on. 
 If the number of columns does not match the number of nulls, the database returns an error.  NULL is used because the data type in each column must be compatible between the original and injected queries, and NULL is convertible to every data type.
 
-## Database-specific syntax
+# Database-specific syntax
 
 **Oracle**: every select query must use the FROM keyword and specify a valid table. In Oracle, there is a built-in table called Dual.
 ```
 ' UNION SELECT NULL FROM DUAL--
 ```
 
-## Finding Columns with a useful data type
+# Finding Columns with a useful data type
 
 The data you would usually want from a query is usually in string form (username, password, etc). So one of the columns needs to be compatible with string data.
 ```
@@ -119,7 +124,7 @@ The data you would usually want from a query is usually in string form (username
 
 If the column data type is not compatible, the injected query will cause a database error.
 
-## Retrieving Multiple Values within a single column
+# Retrieving Multiple Values within a single column
 In some cases the query may only return a single column. You can retrieve multiple values together within the single column by concatenating the values together.
 
 On Oracle:
@@ -127,7 +132,7 @@ On Oracle:
 ' UNION SELECT username || '~' || password FROM users--
 ```
 
-## Examining the database in SQL injection attacks 
+# Examining the database in SQL injection attacks 
 
 Useful information about the database includes the type and version of the database, and the tables and columns that the database contains.
 
@@ -145,7 +150,22 @@ Could return the following output:
 `Microsoft SQL Server 2016 (SP2) (KB4052908) - 13.0.5026.0 (X64) Mar 18 2018 09:11:49 Copyright (c) Microsoft Corporation Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 14393: ) (Hypervisor)`
 
 
-## Listing the Contents of the Database
+# LAB - SQL injection attack, querying the database type and version on Oracle
+<img width="1330" height="772" alt="sql_injection_attack_querying_database_type_on_oracle_pt1" src="https://github.com/user-attachments/assets/7c4dd213-4091-45f0-9b6e-20a22ed7bb42" />
+
+<img width="1250" height="759" alt="sql_injection_attack_querying_database_type_on_oracle_pt2" src="https://github.com/user-attachments/assets/29aa885a-ff29-49df-87d6-6a8bd11cb031" />
+
+<img width="904" height="716" alt="sql_injection_attack_querying_database_type_on_oracle_pt3" src="https://github.com/user-attachments/assets/4f100425-e931-41fa-8fea-c889bcaf75fe" />
+
+
+<img width="908" height="712" alt="sql_injection_attack_querying_database_type_on_oracle_pt4" src="https://github.com/user-attachments/assets/891aad0e-edba-4565-9968-fbca6ab97f91" />
+
+<img width="909" height="712" alt="sql_injection_attack_querying_database_type_on_oracle_pt5" src="https://github.com/user-attachments/assets/1b0dff18-06ff-45d4-87c3-6a727b88fd2c" />
+
+<img width="915" height="755" alt="sql_injection_attack_querying_database_type_on_oracle_pt6" src="https://github.com/user-attachments/assets/d7952a5a-8248-4a3a-a7b6-26c26a90acc5" />
+
+
+# Listing the Contents of the Database
 
 Most database types except Oracle have a set of views that provide information about the database. This is called the information scheea.
 
@@ -163,7 +183,7 @@ You can then use this query: ``SELECT * FROM information_schema.columns WHERE ta
 to list columns
 
 
-## Blind SQL Injection
+# Blind SQL Injection
 When an application is vulnerable to SQL, but the HTTP responses do not contain the results of the relevant SQL query.
 
 Techniques such as `UNION SELECT` are not effective due to relying on being able to see the results.
@@ -204,3 +224,20 @@ To determine the first character is `s`.
 # Error Based SQL Injection
 
 SQL Injections based on errors - inducing a specific response based on the boolean expression. Induce the application to return a different response even if the query doesn't return data - cause a database error only if condition is true
+
+# LAB - SQL injection with filter bypass via XML encoding
+
+<img width="1330" height="838" alt="sql_injection_filter_bypass_xml_encoding-pt1" src="https://github.com/user-attachments/assets/7603bcf2-dec8-44f3-a963-3b3c59e29eff" />
+
+<img width="909" height="465" alt="sql_injection_filter_bypass_xml_encoding-pt2" src="https://github.com/user-attachments/assets/c71886a0-890c-4670-8883-281b0847fe25" />
+
+<img width="903" height="714" alt="sql_injection_filter_bypass_xml_encoding-pt3" src="https://github.com/user-attachments/assets/c168b245-7ecb-4eaa-9842-79b436f7bca9" />
+
+<img width="907" height="717" alt="sql_injection_filter_bypass_xml_encoding-pt4" src="https://github.com/user-attachments/assets/ddf50c4f-d8db-42b9-8d06-32691d4edbae" />
+
+<img width="911" height="716" alt="sql_injection_filter_bypass_xml_encoding-pt5" src="https://github.com/user-attachments/assets/cc244fa4-71c0-49f9-b2c2-2cf2b5412c54" />
+
+<img width="912" height="715" alt="sql_injection_filter_bypass_xml_encoding-pt6" src="https://github.com/user-attachments/assets/48da4022-6840-47e6-9b23-61993e3c5842" />
+
+<img width="1330" height="766" alt="sql_injection_filter_bypass_xml_encoding-pt7" src="https://github.com/user-attachments/assets/6e9c276a-1c32-4370-96fa-a1190f9f4da0" />
+
