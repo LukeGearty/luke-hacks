@@ -412,3 +412,30 @@ I used this to figure out the password one character at a time. Since that would
 
 Natas17
 EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC
+
+
+# Level 17
+The webpage was similar to a previous level where it checks for the existence of a username. 
+
+<img width="1330" height="314" alt="natas17-pt1" src="https://github.com/user-attachments/assets/007b2a7b-c7d0-4757-88c0-2b0fbe3db339" />
+
+
+I looked at the source code and saw that it was executing a query, but the lines that return something to the user were commented out.
+<img width="604" height="347" alt="natas17-pt2" src="https://github.com/user-attachments/assets/54ce6eea-d0e3-49e0-84d5-319df7948d5c" />
+
+
+This application could use a time-based SQL injection, where the attacker puts a payload like `natas18 AND sleep(5)#`. If the query evaluates to true, then it will wait five seconds before reloading.
+
+This can be used to figure out the password. I used a script from this walkthrough to automate the process.
+
+ <img width="1078" height="514" alt="natas17-pt3" src="https://github.com/user-attachments/assets/04824118-0865-46ce-bc65-04f659a33eaf" />
+
+<img width="1081" height="612" alt="natas17-pt4" src="https://github.com/user-attachments/assets/3cbe9793-fcaa-4544-b0ee-0369813e2ecf" />
+
+
+
+Natas18
+6OG1PbKdVjyBlpxgD4DDbRG6ZLlCGgCJ
+
+# Level 18
+
