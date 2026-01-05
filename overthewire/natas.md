@@ -385,3 +385,30 @@ To get the password for the next level.
 Natas16
 hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
 
+
+# Level 16
+Level 16
+This level was a word search, but filtered out more characters to prevent code injections. 
+
+<img width="624" height="286" alt="natas16-pt1" src="https://github.com/user-attachments/assets/ddd72a42-c18c-43b7-b11f-63b80a24ea1d" />
+
+
+I looked at the source code and it was filtering on most characters that would make running multiple commands possible, such as the pipe character or the semicolon character.
+
+<img width="515" height="244" alt="natas16-pt2" src="https://github.com/user-attachments/assets/21135ca3-7e19-41d5-b310-780fbf0d379d" />
+
+
+The code does not block ‘$()’ however, which is another way of running another command. 
+
+The password however cannot just be opened in that command, since it is still going to be wrapped inside the passthru function’s grep command. It would look something like “grep -i \“$(COMMAND HERE)\” dictionary.txt”. If we for instance did cat /etc/natas_webpass/natas17, the full command might try to look for the password in dictionary.txt.
+
+I used this to figure out the password one character at a time. Since that would take a long time, I used a python script to automate it. I took the script from this walkthrough of the level.
+
+<img width="1062" height="550" alt="natas16-pt3" src="https://github.com/user-attachments/assets/2364d2e3-ef18-4ea3-b159-f32b9bc9c5b4" />
+
+<img width="1083" height="625" alt="natas16-pt4" src="https://github.com/user-attachments/assets/ef8c18c5-d49a-4bf2-916d-820dda2bbb2a" />
+
+
+
+Natas17
+EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC
