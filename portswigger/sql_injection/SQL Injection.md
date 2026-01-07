@@ -105,6 +105,18 @@ Second Method:
 And so on. 
 If the number of columns does not match the number of nulls, the database returns an error.  NULL is used because the data type in each column must be compatible between the original and injected queries, and NULL is convertible to every data type.
 
+
+# LAB - SQL injection UNION attack, determining the number of columns returned by the query
+
+<img width="1329" height="842" alt="sqli_union_determine_num_columns_pt1" src="https://github.com/user-attachments/assets/cbca9758-4bf2-4ed6-bfdc-3d4379dbeaf6" />
+
+<img width="1250" height="754" alt="sqli_union_determine_num_columns_pt2" src="https://github.com/user-attachments/assets/ed4376ed-122a-4439-bc6f-af60e035bafd" />
+
+<img width="912" height="758" alt="sqli_union_determine_num_columns_pt3" src="https://github.com/user-attachments/assets/ee782ba8-fac4-4995-834b-d0ee87e13bfc" />
+
+<img width="1326" height="630" alt="sqli_union_determine_num_columns_pt4" src="https://github.com/user-attachments/assets/97ddb42a-9dbb-4b18-aa72-7875810bea95" />
+
+
 # Database-specific syntax
 
 **Oracle**: every select query must use the FROM keyword and specify a valid table. In Oracle, there is a built-in table called Dual.
@@ -123,6 +135,21 @@ The data you would usually want from a query is usually in string form (username
 ```
 
 If the column data type is not compatible, the injected query will cause a database error.
+
+# LAB - SQL injection UNION attack, finding a column containing text
+
+<img width="1327" height="770" alt="sqli_union_attack_finding_col_text_pt1" src="https://github.com/user-attachments/assets/5cd52c78-2e09-47ad-9d7b-6be16608842a" />
+
+<img width="913" height="808" alt="sqli_union_attack_finding_col_text_pt2" src="https://github.com/user-attachments/assets/3de8195b-0749-4bcc-9e3f-b9110984e46c" />
+
+<img width="914" height="720" alt="sqli_union_attack_finding_col_text_pt3" src="https://github.com/user-attachments/assets/4f904ba2-a771-4e7c-a76c-218e8aa10c85" />
+
+<img width="901" height="711" alt="sqli_union_attack_finding_col_text_pt4" src="https://github.com/user-attachments/assets/4173f113-bb99-4811-8a32-ce9024dd4346" />
+
+<img width="909" height="806" alt="sqli_union_attack_finding_col_text_pt5" src="https://github.com/user-attachments/assets/c7619a03-232d-4192-ae5c-47790125ea78" />
+
+<img width="1329" height="636" alt="sqli_union_attack_finding_col_text_pt6" src="https://github.com/user-attachments/assets/1c94d724-9e87-4ae3-936c-dfe4b40c4e8f" />
+
 
 # Retrieving Multiple Values within a single column
 In some cases the query may only return a single column. You can retrieve multiple values together within the single column by concatenating the values together.
