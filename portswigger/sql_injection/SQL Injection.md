@@ -151,6 +151,19 @@ If the column data type is not compatible, the injected query will cause a datab
 <img width="1329" height="636" alt="sqli_union_attack_finding_col_text_pt6" src="https://github.com/user-attachments/assets/1c94d724-9e87-4ae3-936c-dfe4b40c4e8f" />
 
 
+# LAB - SQL injection UNION attack, retrieving data from other tables
+
+<img width="1113" height="772" alt="sqli_union_retrieving_data_from_other_tables-pt1" src="https://github.com/user-attachments/assets/5be9b353-8b9c-43a2-8789-68c5d0e37128" />
+
+<img width="1241" height="756" alt="sqli_union_retrieving_data_from_other_tables-pt2" src="https://github.com/user-attachments/assets/93e041fd-bd6b-4aeb-9269-2b49afea7bdf" />
+
+<img width="1253" height="833" alt="sqli_union_retrieving_data_from_other_tables-pt3" src="https://github.com/user-attachments/assets/d5c78b2d-9f02-4b77-9a93-caae1afb803c" />
+
+<img width="1247" height="762" alt="sqli_union_retrieving_data_from_other_tables-pt4" src="https://github.com/user-attachments/assets/1f8c2d06-a941-436e-bf25-b3c73bc25e8b" />
+
+<img width="1113" height="774" alt="sqli_union_retrieving_data_from_other_tables-pt5" src="https://github.com/user-attachments/assets/5bb8c42d-21ca-4bb3-9e91-44410017d3c4" />
+
+
 # Retrieving Multiple Values within a single column
 In some cases the query may only return a single column. You can retrieve multiple values together within the single column by concatenating the values together.
 
