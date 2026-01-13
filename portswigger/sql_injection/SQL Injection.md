@@ -219,6 +219,16 @@ Could return the following output:
 
 <img width="915" height="755" alt="sql_injection_attack_querying_database_type_on_oracle_pt6" src="https://github.com/user-attachments/assets/d7952a5a-8248-4a3a-a7b6-26c26a90acc5" />
 
+#LAB -SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+<img width="1119" height="776" alt="sqli_query_database_mysql_pt1" src="https://github.com/user-attachments/assets/ad57ecd8-4621-48aa-b703-5f65ffd90fcb" />
+
+<img width="1582" height="790" alt="sqli_query_database_mysql_pt2" src="https://github.com/user-attachments/assets/2506661f-bb22-49b8-92d3-dbd38d910bda" />
+
+<img width="1580" height="747" alt="sqli_query_database_mysql_pt3" src="https://github.com/user-attachments/assets/9901b8fd-aadd-47c5-93b0-149faa3a5677" />
+
+<img width="1116" height="774" alt="sqli_query_database_mysql_pt4" src="https://github.com/user-attachments/assets/4bb3b6d4-cd70-4439-adff-cabdb1d321be" />
+
 
 # Listing the Contents of the Database
 
