@@ -219,7 +219,7 @@ Could return the following output:
 
 <img width="915" height="755" alt="sql_injection_attack_querying_database_type_on_oracle_pt6" src="https://github.com/user-attachments/assets/d7952a5a-8248-4a3a-a7b6-26c26a90acc5" />
 
-#LAB -SQL injection attack, querying the database type and version on MySQL and Microsoft
+# LAB -SQL injection attack, querying the database type and version on MySQL and Microsoft
 
 <img width="1119" height="776" alt="sqli_query_database_mysql_pt1" src="https://github.com/user-attachments/assets/ad57ecd8-4621-48aa-b703-5f65ffd90fcb" />
 
@@ -246,6 +246,25 @@ Returns output like:
 
 You can then use this query: ``SELECT * FROM information_schema.columns WHERE table_name = 'Users'``
 to list columns
+
+
+# LAB - SQL injection attack, listing the database contents on non-Oracle databases
+
+<img width="1112" height="772" alt="sqli_attack_database_contents_non_oracle_pt1" src="https://github.com/user-attachments/assets/b7ef0f3f-3956-4575-a8d5-40a8972beb4b" />
+
+<img width="1247" height="858" alt="sqli_attack_database_contents_non_oracle_pt2" src="https://github.com/user-attachments/assets/df8be0b0-882c-4104-b4cd-c0b3173ff206" />
+
+<img width="1253" height="886" alt="sqli_attack_database_contents_non_oracle_pt3" src="https://github.com/user-attachments/assets/7a308ae5-e764-496d-ad31-046fdfcdc02e" />
+
+<img width="1244" height="764" alt="sqli_attack_database_contents_non_oracle_pt4" src="https://github.com/user-attachments/assets/658f43f1-2054-4dea-9789-8322092150b2" />
+
+<img width="1247" height="762" alt="sqli_attack_database_contents_non_oracle_pt5" src="https://github.com/user-attachments/assets/9e8446ed-347a-4d20-9f87-a0e59e38facd" />
+
+<img width="1249" height="857" alt="sqli_attack_database_contents_non_oracle_pt6" src="https://github.com/user-attachments/assets/2b9963ac-f2e4-4816-b3b5-ab01918b00a4" />
+
+<img width="1248" height="861" alt="sqli_attack_database_contents_non_oracle_pt7" src="https://github.com/user-attachments/assets/6b859cce-8561-4bcf-b69a-6b0c48b12f78" />
+
+<img width="1115" height="771" alt="sqli_attack_database_contents_non_oracle_pt8" src="https://github.com/user-attachments/assets/3b7b39de-a2e7-4126-bcd8-6da9cd394839" />
 
 
 # Blind SQL Injection
