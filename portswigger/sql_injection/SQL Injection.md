@@ -294,6 +294,8 @@ The first of these values will return with results, the second won't because the
 | True  | False | False       |
 | False | True  | False       |
 | False | False | False       |
+
+
 Suppose there is a table called Users with columns Username and Password, and a user called Administrator. To determine the password one character at a time, you send:
 `xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 'm`
 This returns the "Welcome back" message, because it implies that the first character of the password is greater than m.
@@ -304,6 +306,22 @@ The welcome back message does not come back, so the first character is not great
 Eventually we send this query:
 `xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) = 's`
 To determine the first character is `s`.
+
+# Lab - Blind SQL injection with conditional responses
+
+<img width="1121" height="775" alt="blind_sqli_conditional_responses_pt1" src="https://github.com/user-attachments/assets/4c012588-32d4-4be9-9520-e429bb19c07c" />
+
+<img width="1246" height="750" alt="blind_sqli_conditional_responses_pt2" src="https://github.com/user-attachments/assets/5f1f3261-ba5f-45a5-bea5-201befe973ea" />
+
+<img width="1108" height="233" alt="blind_sqli_conditional_responses_pt3" src="https://github.com/user-attachments/assets/d91787c4-8da8-4002-b0b6-12c2097ee511" />
+
+<img width="1251" height="844" alt="blind_sqli_conditional_responses_pt4" src="https://github.com/user-attachments/assets/46665a46-2fa6-4fd4-b6bc-86a2ec046e65" />
+
+<img width="1249" height="861" alt="blind_sqli_conditional_responses_pt5" src="https://github.com/user-attachments/assets/da9eca70-1a52-4d44-a695-717ed453d29b" />
+
+<img width="1480" height="835" alt="blind_sqli_conditional_responses_pt6" src="https://github.com/user-attachments/assets/07d65cea-7954-4650-8ed5-fbb500ec5f30" />
+
+<img width="1114" height="772" alt="blind_sqli_conditional_responses_pt7" src="https://github.com/user-attachments/assets/b8375e26-d155-4d05-a3c5-b6c39832c2ea" />
 
 # Error Based SQL Injection
 
