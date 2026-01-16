@@ -325,7 +325,45 @@ To determine the first character is `s`.
 
 # Error Based SQL Injection
 
-SQL Injections based on errors - inducing a specific response based on the boolean expression. Induce the application to return a different response even if the query doesn't return data - cause a database error only if condition is true
+SQL Injections based on errors - inducing a specific response based on the boolean expression. Induce the application to return a different response even if the query doesn't return data - cause a database error only if condition is true.
+
+When applications carry out SQL queries but their behavior doesn't change, it can be possible to induce the app to return a different response based on whether a SQL error occurs. If the page behaves differently when the SQL error occurs, then you can infer whether a condition was true or false.
+
+Example:
+
+```
+xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a
+xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a
+```
+
+First condition roughly translates to:
+`If (1=2) return 1/0 else return 'a'`
+Second:
+`If (1=1) return 1/0 else return 'a'`
+
+First condition returns 'a', second returns 1/0, which causes a divide by 0 error. 
+
+# Lab - Blind SQL injection with conditional errors
+
+<img width="1116" height="883" alt="blind_sqli_conditional_errors_pt1" src="https://github.com/user-attachments/assets/b01bbd69-0ecf-48b7-8551-53f570ef5529" />
+
+<img width="1249" height="687" alt="blind_sqli_conditional_errors_pt2" src="https://github.com/user-attachments/assets/d28ea0fd-5bcb-4780-aece-c58952154d30" />
+
+
+<img width="1267" height="783" alt="blind_sqli_conditional_errors_pt3" src="https://github.com/user-attachments/assets/8f8b7b79-df6f-42c3-85e1-c060c4d31cfd" />
+
+<img width="1249" height="365" alt="blind_sqli_conditional_errors_pt4" src="https://github.com/user-attachments/assets/74edabbc-098d-4843-bc0f-0aea4bf32d00" />
+
+<img width="1265" height="641" alt="blind_sqli_conditional_errors_pt5" src="https://github.com/user-attachments/assets/6eaa65bf-a07c-4035-8d92-770e18c45b63" />
+
+<img width="1072" height="361" alt="blind_sqli_conditional_errors_pt6" src="https://github.com/user-attachments/assets/f091836a-9156-4410-8b86-8a645c3a9741" />
+
+<img width="762" height="636" alt="blind_sqli_conditional_errors_pt7" src="https://github.com/user-attachments/assets/e1167b91-c0b3-4e9a-b361-2249d41bbb40" />
+
+<img width="1481" height="511" alt="blind_sqli_conditional_errors_pt8" src="https://github.com/user-attachments/assets/8ee9e006-3674-43ce-a191-3008923e0841" />
+
+<img width="844" height="769" alt="blind_sqli_conditional_errors_pt9" src="https://github.com/user-attachments/assets/c06d5ee3-2893-4e2b-9a23-ac7c0455c577" />
+
 
 # LAB - SQL injection with filter bypass via XML encoding
 
