@@ -1,7 +1,7 @@
 # luke-hacks
 Collection of walkthroughs and written hacking tutorials
 
-# Vulnhub
+## Vulnhub
 
 [Mercury](/vulnhub/vulnhub_mercury.md)
 
@@ -27,13 +27,13 @@ Collection of walkthroughs and written hacking tutorials
 
 [Digitalworld.local: Snakeoil](/vulnhub/digitalworld-snakeoil.md)
 
-# PortSwigger
+## PortSwigger
 
 [Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
 
 [SQL Injection](portswigger/sql_injection/SQL%20Injection.md) - In Progress
 
-# Overthewire
+## Overthewire
 
 [Bandit](overthewire/bandit.md)
 
