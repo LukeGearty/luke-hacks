@@ -25,6 +25,8 @@ Collection of walkthroughs and written hacking tutorials
 
 [Hackable: 2](/vulnhub/vulnhub-hackable2.md)
 
+[Digitalworld.local: Snakeoil](/vulnhub/digitalworld-snakeoil.md)
+
 # PortSwigger
 
 [Path Traversal](portswigger/path_traversal/Path%20Traversal.md)
